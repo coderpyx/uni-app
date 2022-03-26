@@ -110,7 +110,7 @@ export default {
     animationData: {},
     bb: false,
     bg: "none",
-    users: "",
+    users: [],
     chat: [],
     otochat: [],
   }),
@@ -192,7 +192,7 @@ export default {
           id: 3,
         };
         this.member = member
-        this.chat.push(wel);;
+        this.chat.push(wel);
       });
     },
     //退出群提醒
