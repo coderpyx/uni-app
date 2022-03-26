@@ -3,7 +3,7 @@
 		<view class="title">欢迎来到 fu-yo 聊天室</view>
 
 		<view class="profile-photo">
-			<image @click="modify" class="photo-img"  :src="`/static/images/${name}.png`" mode="aspectFill" lazy-load="false" @error="" @load=""></image>
+			<image @click="modify" class="photo-img"  :src="madeUrl(name)" mode="aspectFill" lazy-load="false" @error="" @load=""></image>
 		</view>
 
 		<input class="user-name" placeholder="请取一个名字" type="text" v-model="userName">
@@ -13,7 +13,7 @@
 		<view class="modify" :animation="animationData">
 			<view class="modfiy-mian">
 				<view v-for="(e,index) in img" :key="index" class="us-img" @tap="selected(index)">
-					<image :src="'../../static/images/'+e.i+'.png'" mode="aspectFit"></image>	
+					<image :src="madeUrl(e.i)" mode="aspectFit"></image>	
 					<view class="dd">
 						<view class="ddd" :style="{opacity:e.x}"></view>
 					</view>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { madeUrl } from '../../common/imgUrl'
 	export default {
 		data() {
 			return {
@@ -61,6 +62,9 @@
 			}
 		},
 		methods: {
+			madeUrl(i){
+				return madeUrl(i)
+			},
 			modify() {
 				this.isBg = !this.isBg;
 				this.bg = this.isBg ? 'block' : 'none'
